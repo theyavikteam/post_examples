@@ -12,11 +12,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val db = Realm.getDefaultInstance()
         db.beginTransaction()
-        db.copyToRealmOrUpdate(Person("00000001R", "Javi", "Rodríguez"))
+        db.copyToRealmOrUpdate(Person("00000001R", "Javi", "Rodríguez", 28))
         db.commitTransaction()
         val firstPerson = db.where(Person::class.java).findFirst()
         label.text = firstPerson?.let {
-            it.surname + ", " + it.name + " - " + it.identityId
+            it.surname + ", " + it.name + ": " + it.age + " - " + it.identityId
         }
     }
 

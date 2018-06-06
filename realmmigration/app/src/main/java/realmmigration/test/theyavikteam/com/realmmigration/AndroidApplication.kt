@@ -11,7 +11,8 @@ class AndroidApplication: Application() {
         Realm.init(this)
         Realm.setDefaultConfiguration(RealmConfiguration.Builder()
                 .name(DatabaseConstants.NAME)
-                .schemaVersion(DatabaseConstants.FIRST_VERSION)
+                .schemaVersion(DatabaseConstants.SECOND_VERSION)
+                .migration(PersonAgeMigration())
                 .build())
     }
 
