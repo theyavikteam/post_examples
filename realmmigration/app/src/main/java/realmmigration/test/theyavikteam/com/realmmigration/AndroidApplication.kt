@@ -11,8 +11,8 @@ class AndroidApplication: Application() {
         Realm.init(this)
         Realm.setDefaultConfiguration(RealmConfiguration.Builder()
                 .name(DatabaseConstants.NAME)
-                .schemaVersion(DatabaseConstants.SECOND_VERSION)
-                .migration(PersonAgeMigration())
+                .schemaVersion(DatabaseConstants.THIRD_VERSION)
+                .migration(DogAdditionMigration())
                 .build())
     }
 

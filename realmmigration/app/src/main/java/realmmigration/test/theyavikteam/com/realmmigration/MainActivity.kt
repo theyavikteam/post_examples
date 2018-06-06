@@ -13,11 +13,13 @@ class MainActivity : AppCompatActivity() {
         val db = Realm.getDefaultInstance()
         db.beginTransaction()
         db.copyToRealmOrUpdate(Person("00000001R", "Javi", "Rodríguez", 28))
+        db.copyToRealmOrUpdate(Dog("Chiki"))
         db.commitTransaction()
         val firstPerson = db.where(Person::class.java).findFirst()
+        val firstDog = db.where(Dog::class.java).findFirst()
         label.text = firstPerson?.let {
             it.surname + ", " + it.name + ": " + it.age + " - " + it.identityId
-        }
+        }.plus("\n").plus(firstDog?.name)
     }
 
 }
