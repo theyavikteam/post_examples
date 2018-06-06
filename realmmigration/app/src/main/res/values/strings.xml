@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Realm Migration</string>
+    <string name="hello_realm">Hello Realm</string>
+</resources>
